@@ -6,7 +6,7 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 20:45:16 by ksiren            #+#    #+#             */
-/*   Updated: 2021/04/12 20:15:00 by ksiren           ###   ########.fr       */
+/*   Updated: 2021/04/19 20:12:29 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -462,6 +462,8 @@ int	main(int argc, char **argv)
 	data.win = mlx_new_window(data.mlx, data.sizes.win_w, data.sizes.win_h, "Mama tut vse chernoe");
 
 	data.map = fill_map_array(&data);
+	check_map_validity(&data, data.map);
+	check_player(&data);
 	check_dvoyki(&data);
 	data.sizes.map_w = data.stolbs * MSS;
 	data.sizes.map_h = data.stroks * MSS;

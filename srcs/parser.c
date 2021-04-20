@@ -6,12 +6,35 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 13:33:07 by ksiren            #+#    #+#             */
-/*   Updated: 2021/04/12 20:20:25 by ksiren           ###   ########.fr       */
+/*   Updated: 2021/04/18 18:34:15 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 #include "stdio.h"
+
+int	clr_atoi(const char *str)
+{
+	int	ret;
+	int	pusmus;
+
+	pusmus = 1;
+	ret = 0;
+	printf("clr_atoi str = %s\n", str);
+	while (*str && (*str == ' ' || *str == ','))
+		++str;
+	if (*str == '-')
+		pusmus = -1;
+	if (*str == '-' || *str == '+')
+		++str;
+	while (*str >= '0' && *str <= '9')
+	{
+		ret = ret * 10 + (*str - 48);
+		++str;
+	}
+	printf("pidar %d\n", ret * pusmus);
+	return (ret * pusmus);
+}
 
 int		check_format(char *map_name)
 {
@@ -211,9 +234,7 @@ char *check_floor(t_data *data, char *line)
 {
 	static int flag_fl;
 	char **str;
-	int r;
-	int g;
-	int b;
+	int clr[3];
 
 	data->count_params++;
 	if (flag_fl == 1)
@@ -222,16 +243,18 @@ char *check_floor(t_data *data, char *line)
 	str = ft_split(line, ' ');
 	if (darr_len(str) > 4)
 		return ("Error: Invalid floor color\n");
+	while (*line == 'F' || *line == ' ')
+		line++;
+	clr[0] = clr_atoi(line);
+	while (*line != ',' && *line != ' ')
+		line++;
 	line++;
-	if ((r = ft_atoi(line)) > 255 || ft_atoi(line) < 0)
-		return ("Error: Color value is out of range\n");
-	line += ft_strlen(ft_itoa(r));
-	if ((g = ft_atoi(line)) > 255 || ft_atoi(line) < 0)
-		return ("Error: Color value is out of range\n");
-	line += ft_strlen(ft_itoa(g));
-	if ((b = ft_atoi(line)) > 255 || ft_atoi(line) < 0)
-		return ("Error: Color value is out of range\n");
-	data->floor_tex = r * 256 * 256 + g * 256 + b;
+	clr[1] = clr_atoi(line);
+	while (*line != ',' && *line != ' ')
+		line++;
+	clr[2] = clr_atoi(line);
+	printf("%d, %d, %d\n", clr[0], clr[1], clr[2]);
+	data->floor_tex = clr[0] * 256 * 256 + clr[1] * 256 + clr[2];
 	return (NULL);
 }
 
@@ -239,9 +262,7 @@ char *check_ceiling(t_data *data, char *line)
 {
 	static int flag_fl;
 	char **str;
-	int r;
-	int g;
-	int b;
+	int clr[3];
 
 	data->count_params++;
 	if (flag_fl == 1)
@@ -250,19 +271,18 @@ char *check_ceiling(t_data *data, char *line)
 	str = ft_split(line, ' ');
 	if (darr_len(str) > 4)
 		return ("Error: Invalid ceiling color\n");
+	while (*line == 'C' || *line == ' ')
+		line++;
+	clr[0] = clr_atoi(line);
+	while (*line != ',' && *line != ' ')
+		line++;
 	line++;
-	if ((r = ft_atoi(line)) > 255 || ft_atoi(line) < 0)
-		return ("Error: Color value is out of range\n");
-	printf("ceiling r = %d; ", r);
-	line += 4;
-	if ((g = ft_atoi(line)) > 255 || ft_atoi(line) < 0)
-		return ("Error: Color value is out of range\n");
-	printf("ceiling g = %d; ", g);
-	line += 4;
-	if ((b = ft_atoi(line)) > 255 || ft_atoi(line) < 0)
-		return ("Error: Color value is out of range\n");
-	printf("ceiling b = %d\n", b);
-	data->ceiling_tex = r * 256 * 256 + g * 256 + b;
+	clr[1] = clr_atoi(line);
+	while (*line != ',' && *line != ' ')
+		line++;
+	clr[2] = clr_atoi(line);
+	printf("%d, %d, %d\n", clr[0], clr[1], clr[2]);
+	data->ceiling_tex = clr[0] * 256 * 256 + clr[1] * 256 + clr[2];
 	return (NULL);
 }
 

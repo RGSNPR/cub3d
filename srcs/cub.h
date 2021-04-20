@@ -116,6 +116,8 @@ void	draw_sprite(t_data *data, t_sprite *sprite, double *arr);
 void	draw_floor(t_data *data, unsigned int color, char *addr);
 void	draw_ceiling(t_data *data, unsigned int color, char *addr);
 void	check_dvoyki(t_data *data);
+void	check_player(t_data *data);
+void	check_map_validity(t_data *data, char **map);
 void	sort_sprites(t_data *data);
 void	init_idens(t_idens *idens);
 char	**fill_map_array(t_data *data);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_funcs.c                                        :+:      :+:    :+:   */
+/*   map_funcs copy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 17:04:24 by ksiren            #+#    #+#             */
-/*   Updated: 2021/04/19 20:13:36 by ksiren           ###   ########.fr       */
+/*   Updated: 2021/04/19 19:16:13 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,66 +222,9 @@ void	check_player(t_data *data)
 		{
 			if (is_player_placed(data, data->map[i][j]))
 			{
-				data->player.posx = j * MSS + MSS/2;
-				data->player.posy = i * MSS + MSS/2;
-				flag = 1;
-				break ;
-			}
-			j++;
-		}
-		i++;
-	}
-	if (flag == 0)
-	{
-		ft_putstr_fd("Error: Player is not presented\n", 2);
-		exit(0);
-	}
-	return ;
-}
-
-void	check_map_validity(t_data *data, char **map)
-{
-	int i;
-	int j;
-	int flag;
-
-	i = 0;
-	j = 0;
-	flag = 0;
-	while (map[i])
-	{
-		j = 0;
-		while (map[i][j])
-		{
-			if (i == 0 && map[i][j] != ' ' && map[i][j] != '1')
-			{
-				ft_putstr_fd("Error: Invalid map\n", 2);
-				exit(0);
-			}
-			else if (i == (int)data->stroks && map[i][j] != ' ' && map[i][j] != '1')
-			{
-				ft_putstr_fd("Error: Invalid map\n", 2);
-				exit(0);
-			}
-			else if (j == 0 && map[i][j] != ' ' && map[i][j] != '1')
-			{
-				ft_putstr_fd("Error: Invalid map\n", 2);
-				exit(0);
-			}
-			else if (j == (int)data->stolbs && map[i][j] != ' ' && map[i][j] != '1')
-			{
-				ft_putstr_fd("Error: Invalid map\n", 2);
-				exit(0);
-			}
-			if (map[i][j] == '0' || map[i][j] == 'N' || map[i][j] == 'S'
-				|| map[i][j] == 'W' || map[i][j] == 'E')
-			{
-				if (map[i - 1][j] == ' ' || map[i + 1][j] == ' ' ||
-					map[i][j - 1] == ' ' || map[i][j + 1] == ' ')
-				{
-					ft_putstr_fd("Error: Invalid map\n", 2);
-					exit(0);
-				}
+				data->player.posx = j * MSS;
+				data->player.posy = i * MSS;
+				return  ;
 			}
 			j++;
 		}
