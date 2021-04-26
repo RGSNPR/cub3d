@@ -6,17 +6,17 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 14:28:27 by ksiren            #+#    #+#             */
-/*   Updated: 2020/11/25 17:27:12 by ksiren           ###   ########.fr       */
+/*   Updated: 2021/04/26 15:33:37 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static int		count_size(char const *s, char c)
+static int	count_size(char const *s, char c)
 {
 	int	i;
-	int size;
+	int	size;
 
 	i = 0;
 	size = 0;
@@ -33,9 +33,9 @@ static int		count_size(char const *s, char c)
 	return (size);
 }
 
-static int		count_leng(char const *s, char c, int i)
+static int	count_leng(char const *s, char c, int i)
 {
-	int leng;
+	int	leng;
 
 	leng = 0;
 	while (s[i] != '\0' && s[i] != c)
@@ -46,9 +46,9 @@ static int		count_leng(char const *s, char c, int i)
 	return (leng);
 }
 
-static char		**pohudet(char **zhir)
+static char	**pohudet(char **zhir)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (zhir[i])
@@ -60,7 +60,7 @@ static char		**pohudet(char **zhir)
 	return (NULL);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		i;
 	int		j;
@@ -70,15 +70,15 @@ char			**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	size = count_size(s, c);
-	if (!(zhir = (char **)malloc(sizeof(char *) * (size + 1))))
-		return (NULL);
+	zhir = (char **)malloc(sizeof(char *) * (size + 1));
 	i = 0;
 	j = 0;
 	while (size > 0)
 	{
 		while (s[i] != '\0' && s[i] == c)
 			i++;
-		if (!(zhir[j] = ft_substr(s, i, count_leng(s, c, i))))
+		zhir[j] = ft_substr(s, i, count_leng(s, c, i));
+		if (!zhir[j])
 			return (pohudet(zhir));
 		i += count_leng(s, c, i);
 		j++;

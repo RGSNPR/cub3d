@@ -6,7 +6,7 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 16:53:36 by ksiren            #+#    #+#             */
-/*   Updated: 2020/11/18 17:46:31 by ksiren           ###   ########.fr       */
+/*   Updated: 2021/04/26 15:34:22 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t num;
-	size_t len;
+	size_t	num;
+	size_t	len;
 
 	num = 0;
 	len = 0;

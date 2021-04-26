@@ -6,7 +6,7 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 18:15:28 by ksiren            #+#    #+#             */
-/*   Updated: 2020/11/24 20:23:02 by ksiren           ###   ########.fr       */
+/*   Updated: 2021/04/26 15:35:59 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static char	*malloc_term(void)
 	return (dest2);
 }
 
-char		*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*dest;
 	size_t	i;

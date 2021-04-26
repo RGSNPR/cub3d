@@ -6,7 +6,7 @@
 #    By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/02 19:09:44 by ksiren            #+#    #+#              #
-#    Updated: 2020/11/24 17:31:50 by ksiren           ###   ########.fr        #
+#    Updated: 2021/04/26 15:29:45 by ksiren           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,8 @@ $(NAME): $(OBJ)
 all: $(NAME)
 
 bonus: $(NAME)
-		$(CC) $(CFLAGS) $(BONUS)
-		ar rc $(NAME) $(OBJBNS)
+		$(CC) $(CFLAGS)
+		ar rc $(NAME)
 
 clean:
 		$(RM) $(OBJ) $(OBJBNS)

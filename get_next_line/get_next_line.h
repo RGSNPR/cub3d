@@ -6,7 +6,7 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 19:00:23 by ksiren            #+#    #+#             */
-/*   Updated: 2021/01/26 17:25:46 by ksiren           ###   ########.fr       */
+/*   Updated: 2021/04/26 16:19:38 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ int		ft_strlen(const char *s);
 char	*ft_strjoin_mod(char *s1, char *s2);
 char	*ft_cutost(char *s);
 
-#endif
-
-#ifndef BUFFER_SIZE
 # define BUFFER_SIZE 1
 
 #endif

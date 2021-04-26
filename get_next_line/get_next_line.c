@@ -6,39 +6,12 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 18:57:37 by ksiren            #+#    #+#             */
-/*   Updated: 2021/02/03 08:13:10 by ksiren           ###   ########.fr       */
+/*   Updated: 2021/04/26 16:17:34 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "../srcs/cub.h"
-
-// void	*ft_memmove(void *dst, const void *src, size_t len)
-// {
-// 	unsigned char	*ch1;
-// 	unsigned char	*ch2;
-
-// 	ch1 = (unsigned char *)src;
-// 	ch2 = (unsigned char *)dst;
-// 	if (src == dst)
-// 		return (ch2);
-// 	if (dst <= src || dst >= (src + len))
-// 	{
-// 		while (len-- > 0)
-// 			*ch2++ = *ch1++;
-// 	}
-// 	else
-// 	{
-// 		ch2 += len - 1;
-// 		ch1 += len - 1;
-// 		while (len > 0)
-// 		{
-// 			*ch2-- = *ch1--;
-// 			len--;
-// 		}
-// 	}
-// 	return (dst);
-// }
 
 char	*ft_strjoin_mod(char *s1, char *s2)
 {
@@ -52,8 +25,7 @@ char	*ft_strjoin_mod(char *s1, char *s2)
 	size1 = ft_strlen(s1);
 	size2 = ft_strlen(s2);
 	sizer = size1 + size2;
-	if (!(new = (char *)malloc(sizeof(char) * (sizer + 1))))
-		return (NULL);
+	new = (char *)malloc(sizeof(char) * (sizer + 1));
 	ft_memmove(new, s1, size1);
 	ft_memmove(new + size1, s2, size2);
 	new[sizer] = '\0';
@@ -61,7 +33,7 @@ char	*ft_strjoin_mod(char *s1, char *s2)
 	return (new);
 }
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char	*ost;
 	char		*buf;
@@ -70,8 +42,7 @@ int		get_next_line(int fd, char **line)
 	rres = 1;
 	if (fd < 0 || !line || BUFFER_SIZE <= 0)
 		return (-1);
-	if (!(buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1))))
-		return (-1);
+	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	while (rres != 0 && ft_parse_es(ost) == 0)
 	{
 		rres = read(fd, buf, BUFFER_SIZE);
@@ -86,5 +57,7 @@ int		get_next_line(int fd, char **line)
 	*line = ft_newstr(ost);
 	ost = ft_cutost(ost);
 	free(buf);
-	return (!rres ? 0 : 1);
+	if (rres)
+		return (0);
+	return (1);
 }

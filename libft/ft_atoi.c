@@ -6,7 +6,7 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 21:48:50 by ksiren            #+#    #+#             */
-/*   Updated: 2021/04/18 18:05:00 by ksiren           ###   ########.fr       */
+/*   Updated: 2021/04/26 15:26:57 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	ft_atoi(const char *str)
 
 	pusmus = 1;
 	ret = 0;
-	while (*str && (*str == ' ' || *str == '\n' || *str == '\t' ||
-			*str == '\v' || *str == '\f' || *str == '\r'))
+	while (*str && (*str == ' ' || *str == '\n' || *str == '\t'
+			|| *str == '\v' || *str == '\f' || *str == '\r'))
 		++str;
 	if (*str == '-')
 		pusmus = -1;
@@ -33,5 +33,3 @@ int	ft_atoi(const char *str)
 	}
 	return (ret * pusmus);
 }
-
-

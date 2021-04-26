@@ -6,7 +6,7 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 21:38:09 by ksiren            #+#    #+#             */
-/*   Updated: 2020/11/12 21:55:56 by ksiren           ###   ########.fr       */
+/*   Updated: 2021/04/26 15:32:08 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int num;
+	unsigned int	num;
 
 	if (n < 0)
 	{

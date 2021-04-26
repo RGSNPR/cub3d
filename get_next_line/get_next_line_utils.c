@@ -6,14 +6,14 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 22:01:11 by ksiren            #+#    #+#             */
-/*   Updated: 2021/02/03 08:13:00 by ksiren           ###   ########.fr       */
+/*   Updated: 2021/04/26 15:38:56 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "../srcs/cub.h"
 
-int		ft_parse_es(char *s)
+int	ft_parse_es(char *s)
 {
 	int	i;
 
@@ -29,18 +29,6 @@ int		ft_parse_es(char *s)
 	return (0);
 }
 
-// int		ft_strlen(const char *s)
-// {
-// 	int i;
-
-// 	i = 0;
-// 	if (!s)
-// 		return (0);
-// 	while (s[i] != '\0')
-// 		i++;
-// 	return (i);
-// }
-
 char	*ft_newstr(char *s)
 {
 	char	*new;
@@ -51,7 +39,8 @@ char	*ft_newstr(char *s)
 	i = 0;
 	while (s[i] != '\n' && s[i])
 		i++;
-	if (!(new = (char *)malloc(sizeof(char) * (i + 1))))
+	new = (char *)malloc(sizeof(char) * (i + 1));
+	if (!new)
 		return (NULL);
 	i = 0;
 	while (s[i] != '\n' && s[i])
@@ -80,8 +69,7 @@ char	*ft_cutost(char *s)
 		free(s);
 		return (NULL);
 	}
-	if (!(new = (char *)malloc(sizeof(char) * ((ft_strlen(s) - i) + 1))))
-		return (NULL);
+	new = (char *)malloc(sizeof(char) * ((ft_strlen(s) - i) + 1));
 	i += 1;
 	while (s[i])
 	{

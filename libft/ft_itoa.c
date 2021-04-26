@@ -6,7 +6,7 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:05:23 by ksiren            #+#    #+#             */
-/*   Updated: 2020/11/21 02:20:51 by ksiren           ###   ########.fr       */
+/*   Updated: 2021/04/26 15:28:10 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	count_size(int n)
 {
-	int size;
+	int	size;
 
 	size = 0;
 	if (n == -2147483648)
@@ -32,13 +32,14 @@ static int	count_size(int n)
 	return (size);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*new;
 	int		size;
 
 	size = count_size(n);
-	if (!(new = (char *)malloc(sizeof(char) * (size + 1))))
+	new = (char *)malloc(sizeof(char) * (size + 1));
+	if (!new)
 		return (NULL);
 	new[size--] = '\0';
 	if (n == 0)

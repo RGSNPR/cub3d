@@ -6,7 +6,7 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 14:08:47 by ksiren            #+#    #+#             */
-/*   Updated: 2020/11/18 17:46:38 by ksiren           ###   ########.fr       */
+/*   Updated: 2021/04/26 15:34:59 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	if (!s || !f)
 		return (NULL);
-	if (!(new = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
+	(new = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1)));
+	if (!new)
 		return (NULL);
 	while (i < ft_strlen(s))
 	{
