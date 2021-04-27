@@ -6,7 +6,7 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 23:59:20 by ksiren            #+#    #+#             */
-/*   Updated: 2021/04/26 13:34:01 by ksiren           ###   ########.fr       */
+/*   Updated: 2021/04/27 05:24:41 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static char	*check_northern_tex(t_data *data, char *line)
 	data->n_tex.addr = mlx_get_data_addr(data->n_tex.img,
 			&data->n_tex.bits_per_pixel, &data->n_tex.line_length,
 			&data->n_tex.endian);
+	clean_array(str);
 	return (NULL);
 }
 
@@ -49,6 +50,7 @@ static char	*check_southern_tex(t_data *data, char *line)
 	data->s_tex.addr = mlx_get_data_addr(data->s_tex.img,
 			&data->s_tex.bits_per_pixel, &data->s_tex.line_length,
 			&data->s_tex.endian);
+	clean_array(str);
 	return (NULL);
 }
 
@@ -69,6 +71,7 @@ static char	*check_eastern_tex(t_data *data, char *line)
 	data->e_tex.addr = mlx_get_data_addr(data->e_tex.img,
 			&data->e_tex.bits_per_pixel, &data->e_tex.line_length,
 			&data->e_tex.endian);
+	clean_array(str);
 	return (NULL);
 }
 
@@ -89,6 +92,7 @@ static char	*check_western_tex(t_data *data, char *line)
 	data->w_tex.addr = mlx_get_data_addr(data->w_tex.img,
 			&data->w_tex.bits_per_pixel, &data->w_tex.line_length,
 			&data->w_tex.endian);
+	clean_array(str);
 	return (NULL);
 }
 

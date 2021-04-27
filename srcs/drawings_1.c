@@ -6,7 +6,7 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 19:45:34 by ksiren            #+#    #+#             */
-/*   Updated: 2021/04/26 13:11:57 by ksiren           ###   ########.fr       */
+/*   Updated: 2021/04/27 05:21:49 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,6 @@ void	render(t_data *data)
 		draw_sprite(data, &data->sprites[x], arr);
 		x++;
 	}
+	free(arr);
 	return ;
 }

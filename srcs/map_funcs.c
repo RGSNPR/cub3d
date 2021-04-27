@@ -6,7 +6,7 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 17:04:24 by ksiren            #+#    #+#             */
-/*   Updated: 2021/04/26 13:22:57 by ksiren           ###   ########.fr       */
+/*   Updated: 2021/04/27 20:09:32 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,23 @@ void	find_map(t_data *data, int fd, char **line)
 		i += is_parameter(*line);
 		if (is_map_fl(*line) == 1)
 			exit_error("Error: Not enough parameters\n");
+		free(*line);
 	}
 	while (is_map_fl(*line) == 0)
 	{
 		if (get_next_line(fd, line) > 0)
 			continue ;
 		else
+		{
+			free(*line);
 			break ;
+		}
 	}
 	if (i == data->count_params && is_map_fl(*line))
 		data->map_flag = 1;
 	else
 		data->map_flag = 0;
+	free(*line);
 	return ;
 }
 
@@ -62,6 +67,7 @@ void	count_map_size(t_data *data, char **line, int fd)
 		if ((unsigned int)ft_strlen(*line) > data->stolbs)
 			data->stolbs = ft_strlen(*line);
 		data->stroks++;
+		free(*line);
 	}
 	close(fd);
 	return ;
@@ -73,7 +79,10 @@ char	**fill_map(char **line, char **dva, int fd)
 
 	j = 1;
 	while (get_next_line(fd, line) == 1)
+	{
 		dva[j++] = ft_strdup(*line);
+		free(*line);
+	}
 	dva[j] = NULL;
 	close(fd);
 	return (dva);
@@ -99,7 +108,6 @@ char	**fill_map_array(t_data *data)
 	find_map(data, fd, &line);
 	i = 0;
 	dva[j] = ft_strdup(line);
-	free(line);
 	dva = fill_map(&line, dva, fd);
 	return (dva);
 }

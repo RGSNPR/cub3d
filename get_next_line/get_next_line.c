@@ -6,7 +6,7 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 18:57:37 by ksiren            #+#    #+#             */
-/*   Updated: 2021/04/26 16:17:34 by ksiren           ###   ########.fr       */
+/*   Updated: 2021/04/27 05:21:17 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,6 @@ int	get_next_line(int fd, char **line)
 	ost = ft_cutost(ost);
 	free(buf);
 	if (rres)
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }

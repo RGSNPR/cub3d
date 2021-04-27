@@ -161,7 +161,7 @@ void	ext_data_init(t_data *data);
 void	exit_error(char *error);
 void	put_sprite_to_window(t_data *data, t_sprite *sprite, int j, int i);
 void	find_map(t_data *data, int fd, char **line);
-void	kubik_draw(int x, int y, t_data data, unsigned int color);
+void	clean_array(char **arr);
 void	draw_map(t_data *data);
 void	draw_wall(t_data *data, double ang, t_tx *tx, t_texs *texs);
 void	draw_sprite(t_data *data, t_sprite *sprite, double *arr);

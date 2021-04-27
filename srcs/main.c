@@ -6,7 +6,7 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 20:45:16 by ksiren            #+#    #+#             */
-/*   Updated: 2021/04/26 15:13:02 by ksiren           ###   ########.fr       */
+/*   Updated: 2021/04/27 20:33:56 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@ int	check_argc(int argc, t_data *data, char **argv)
 	else if (argc == 2)
 		return (1);
 	if (argc == 3 && ft_strncmp(argv[2], "--save", ft_strlen(argv[2])) == 0)
+	{
+		data->sizes.win_w = 1280;
+		data->sizes.win_h = 720;
 		screenshot(data);
+	}
 	else if (argc == 3
 		&& ft_strncmp(argv[2], "--save", ft_strlen(argv[2])) != 0)
 		exit_error("Error: Bad argument\n");

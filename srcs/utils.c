@@ -6,7 +6,7 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 19:54:21 by ksiren            #+#    #+#             */
-/*   Updated: 2021/04/26 15:25:49 by ksiren           ###   ########.fr       */
+/*   Updated: 2021/04/27 19:47:56 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,17 @@ void	put_sprite_to_window(t_data *data, t_sprite *sprite, int j, int i)
 	if (color > 0)
 		my_mlx_pixel_put(data, sprite->h_offset + i,
 			sprite->v_offset + j, color);
+}
+
+void	clean_array(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free (arr);
 }

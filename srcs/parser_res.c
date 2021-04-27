@@ -6,7 +6,7 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 00:05:05 by ksiren            #+#    #+#             */
-/*   Updated: 2021/04/26 15:16:17 by ksiren           ###   ########.fr       */
+/*   Updated: 2021/04/27 20:07:27 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,7 @@ char	*check_res(t_data *data, char *line)
 	flag_res = 1;
 	str = ft_split(line, ' ');
 	if (res_id(str[0]) || darr_len(str) != 3 || res_values(str[1])
-		|| res_values(str[2]) || ft_atoi(str[1]) < 10
-		|| ft_atoi(str[2]) < 10)
+		|| res_values(str[2]) || ft_atoi(str[1]) < 10 || ft_atoi(str[2]) < 10)
 		return ("Error: Invalid resolution\n");
 	mlx_get_screen_size(data->mlx, &x, &y);
 	if (ft_atoi(str[1]) > x)
@@ -66,5 +65,6 @@ char	*check_res(t_data *data, char *line)
 		data->sizes.win_w = ft_atoi(str[1]);
 		data->sizes.win_h = ft_atoi(str[2]);
 	}
+	clean_array(str);
 	return (NULL);
 }
